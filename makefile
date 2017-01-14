@@ -12,12 +12,17 @@ build:
 	rm -rf public
 	hugo -d public
 
+prepare:
+	if [ ! -d "public" ]; \
+	then \
+		git clone git@github.com:jontk/brokkr.io --branch gh-pages public; \
+	fi;
+
 publish:
+	make prepare
+	rm -rf public/*
+	hugo -d public
 	cd public; \
-	ls -al; \
-	git init; \
-	git remote add origin git@github.com:jontk/brokkr.io; \
-	git checkout -b gh-pages; \
 	git add --all; \
-	git commit -m "GitHub Pages Upload"; \
-	git push -f origin gh-pages;
+	git commit -m "Released at $(shell date +'%Y.%m.%d %H:%M:%S')"; \
+	git push;
