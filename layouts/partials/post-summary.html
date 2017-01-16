@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="columns small-10 large-10">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a> <small>/ <time datetime="{{ $.Date }}" itemprop="datePublished">{{ $.Date.Format (default "2 January 2006" (index $.Site.Params "date_format")) }}</time></small></h2>
+  </div>
+  <div class="columns small-2 large-2 text-right">
+    {{ if isset .Params "categories" }}<h5 class="subheader">{{ index .Params.categories 0 }}</time></h5>{{ end }}
+  </div>
+</div>
+{{ if isset $.Params "subtitle" }}<h3><small>{{ .Params.subtitle }}</small></h3>{{ end }}
+<div class="row">
+  <div class="column text-justify">
+    {{ if .Truncated }}
+    {{ .Summary }}
+    {{ else }}
+    {{ .Content }}
+    {{ end }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="columns small-10 large-10">
+    {{ partial "post-metadata" . }}
+  </div>
+  <div class="columns small-2 large-2 text-centered">
+    {{ if .Truncated }}
+    <p class="text-right"><a href="{{ .RelPermalink }}">Read More</a></p>
+    {{ end }}
+  </div>
+</div>

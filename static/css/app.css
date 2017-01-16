@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Ropa Sans';
+    src: url(/fonts/RopaSans-Regular.ttf) format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Ropa Sans Italic';
+    src: url(/fonts/RopaSans-Italic.ttf);
+    font-weight: 400;
+}
+
+div#my-top-bar {
+  background-color: #212020;
+  color: #ffffff;
+}
+
+div#my-top-bar ul {
+  background-color: #212020;
+}
+
+div#my-top-bar a {
+  font-family: 'Ropa Sans', Raleway, "Open Sans", Arial, sans-serif;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #fff;
+}
+
+div#my-top-bar a.active {
+  color: #EFAC41;
+}
+
+.title-bar {
+  background-color: #212020;
+  color: #EFAC41;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ropa Sans', Raleway, "Open Sans", Arial, sans-serif;
+  color: #EFAC41;
+}
+
+body {
+    background-color: #212020;
+}

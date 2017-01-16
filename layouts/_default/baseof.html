@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    {{ partial "meta.html" . }}
+    <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
+
+    {{ range .Site.Params.custom_css }}
+        <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+    {{ end }}
+
+  </head>
+  <body>
+
+    <!-- Start Top Bar -->
+    <div class="top-bar" id="my-top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          {{ $currentPage := . }}
+          {{ range .Site.Menus.main }}
+            <li><a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} menu-text active{{end}}" href="{{.URL}}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+    <div class="row small-up-2 medium-up-3 large-up-4">
+        {{ block "main" . }}
+        {{ end }}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    {{ range .Site.Params.custom_js }}
+        <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
+    {{ end }}
+
+    <script>
+      $(document).foundation();
+    </script>
+
+    {{ template "_internal/google_analytics.html" . }}
+  </body>
+</html>

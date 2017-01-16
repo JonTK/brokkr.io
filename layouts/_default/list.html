@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="row">
+  <br>
+  <div class="columns small-10 large-10 large-centered small-centered text-centered">
+    <h1 class="text-center">{{ .Title }}</h1>
+  </div>
+  <div class="columns small-10 large-10 large-centered small-centered text-centered">
+    {{ if isset .Params "subtitle" }}<h3 class="text-center"><small>{{ .Params.subtitle }}</small></h3>{{ end }}
+  </div>
+  <div class="columns small-10 large-10 large-centered small-centered text-centered">
+    {{ .Content }}
+  </div>
+</div>
+<div class="row">
+  <br>
+  <div class="column small-10 large-10 large-centered small-centered">
+    {{ range .Data.Pages }}
+      {{ partial "post-summary" . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}
