@@ -22,7 +22,8 @@ publish:
 	make prepare
 	rm -rf public/*
 	hugo -d public
+	cp CNAME public/
 	cd public; \
 	git add --all; \
 	git commit -m "Released at $(shell date +'%Y.%m.%d %H:%M:%S')"; \
-	git push;
+	#git push;
