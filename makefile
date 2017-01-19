@@ -26,4 +26,4 @@ publish:
 	cd public; \
 	git add --all; \
 	git commit -m "Released at $(shell date +'%Y.%m.%d %H:%M:%S')"; \
-	#git push;
+	git push;
